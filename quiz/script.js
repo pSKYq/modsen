@@ -10,6 +10,11 @@ const quizData = [
         correct: "Эверест"
     },
     {
+        question: "Какие из перечисленных городов являются столицами стран?",
+        answers: ["Франция", "Киев", "Берлин"],
+        correct: ["Киев", "Берлин"]
+    },
+    {
         question: "Какой элемент обозначается символом 'O'?",
         answers: ["Кислород", "Золото", "Серебро"],
         correct: "Кислород"
@@ -103,6 +108,12 @@ function loadQuestion() {
     currentQuestion.answers.forEach(answer => {
         const li = document.createElement('li');
         li.textContent = answer;
+
+        if (Array.isArray(currentQuestion.correct)) {
+            li.classList.add('multiple-choice');
+            li.innerHTML += '<span class="info">(Выберите один или несколько вариантов)</span>';
+        }
+
         li.addEventListener('click', () => selectAnswer(li, answer));
         answerListEl.appendChild(li);
     });
@@ -115,24 +126,41 @@ function loadQuestion() {
 
 function selectAnswer(selectedLi, answer) {
     const currentQuestion = quizData[currentQuestionIndex];
-    const correctAnswers = Array.isArray(currentQuestion.correct) ? currentQuestion.correct : [currentQuestion.correct];
 
-    if (correctAnswers.includes(answer)) {
-        selectedLi.classList.add('correct');
-        score++;
-    } else {
-        selectedLi.classList.add('incorrect');
-    }
-
-    Array.from(answerListEl.children).forEach(child => {
-        child.removeEventListener('click', () => selectAnswer(child, child.textContent));
-        child.style.pointerEvents = 'none';
-        if (correctAnswers.includes(child.textContent)) {
-            child.classList.add('correct');
+    if (Array.isArray(currentQuestion.correct)) {
+        if (selectedLi.classList.contains('selected')) {
+            selectedLi.classList.remove('selected');
+        } else {
+            selectedLi.classList.add('selected');
         }
-    });
 
-    nextButton.disabled = false;
+        const selectedChoices = Array.from(answerListEl.children).filter(li => li.classList.contains('selected'));
+
+        if (selectedChoices.length > 0) {
+            nextButton.disabled = false;
+        } else {
+            nextButton.disabled = true;
+        }
+    } else {
+        const correctAnswers = currentQuestion.correct;
+
+        if (correctAnswers === answer) {
+            selectedLi.classList.add('correct');
+            score++;
+        } else {
+            selectedLi.classList.add('incorrect');
+        }
+
+        Array.from(answerListEl.children).forEach(child => {
+            child.removeEventListener('click', () => selectAnswer(child, child.textContent));
+            child.style.pointerEvents = 'none';
+            if (correctAnswers === child.textContent) {
+                child.classList.add('correct');
+            }
+        });
+
+        nextButton.disabled = false;
+    }
 }
 
 function showResult() {
