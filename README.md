@@ -1,1 +1,1 @@
-https://pskyq.github.io/quiz/
+https://pskyq.github.io/quizzz/
