@@ -53,6 +53,8 @@ const quizData = [
 
 let currentQuestionIndex = 0; 
 let score = 0; 
+let timerInterval;
+let startTime;
 
 const questionEl = document.getElementById('question');
 const answerListEl = document.getElementById('answer-list');
@@ -63,8 +65,35 @@ const totalEl = document.getElementById('total');
 const restartButton = document.getElementById('restart-button');
 const questionCounterEl = document.getElementById('question-counter');
 const totalQuestionsEl = document.getElementById('total-questions');
+const timerEl = document.getElementById('timer');
+const finalTimeEl = document.getElementById('final-time');
+const themeToggle = document.getElementById('theme-toggle');
 
 totalQuestionsEl.textContent = quizData.length;
+
+themeToggle.addEventListener('change', () => {
+    document.body.classList.toggle('light-theme');
+});
+
+function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+}
+
+function startTimer() {
+    startTime = Date.now();
+    timerInterval = setInterval(() => {
+        const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
+        timerEl.textContent = formatTime(elapsedSeconds);
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
+    const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
+    return formatTime(elapsedSeconds);
+}
 
 function loadQuestion() {
     const currentQuestion = quizData[currentQuestionIndex];
@@ -107,9 +136,11 @@ function selectAnswer(selectedLi, answer) {
 }
 
 function showResult() {
+    const totalTime = stopTimer();
     resultEl.classList.remove('hidden');
     scoreEl.textContent = score;
     totalEl.textContent = quizData.length;
+    finalTimeEl.textContent = totalTime;
     nextButton.classList.add('hidden');
 }
 
@@ -117,7 +148,7 @@ function resetQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     resultEl.classList.add('hidden');
-    loadQuestion();
+    startQuiz();
 }
 
 nextButton.addEventListener('click', () => {
@@ -132,6 +163,7 @@ nextButton.addEventListener('click', () => {
 restartButton.addEventListener('click', resetQuiz);
 
 function startQuiz() {
+    startTimer();
     loadQuestion();
 }
 
