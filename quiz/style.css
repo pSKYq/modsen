@@ -194,3 +194,20 @@ body.light-theme #next-button:hover:not(:disabled), body.light-theme #restart-bu
     background-color: #007bff; 
     color: #fff;
 }
+
+@media (max-width: 400px) {
+    .quiz-container {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    #answer-list li {
+        margin: 5px 0;
+        padding: 12px;
+    }
+
+    .theme-switcher label {
+        display: none;
+    }
+}
