@@ -12,3 +12,5 @@
 # УДАЛЕННЫЕ РЕПОЗИТОРИИ
 ![image](https://github.com/pSKYq/modsen/assets/92396566/d567ef42-cda2-4962-99de-884221ab38ee)
 ###  Push & Pull - удалённые репозитории в Git! 
+![image](https://github.com/pSKYq/modsen/assets/92396566/3552a7fc-7db9-49f8-b973-2a0b34d43c38)
+###  Через origin – к звёздам. Продвинутое использование Git Remotes 
