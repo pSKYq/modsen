@@ -5,5 +5,5 @@
 ### Едем дальше
 ![image](https://github.com/pSKYq/modsen/assets/92396566/f919f389-81af-4a83-a558-cf2da294a9a9)
 ### Перемещаем туда сюда
-![image](https://github.com/pSKYq/modsen/assets/92396566/6b26ad05-8c18-4b2f-8698-eac2c5b0cdad)
+![image](https://github.com/pSKYq/modsen/assets/92396566/2ed4dcdd-9b77-4b7c-8683-d88e2365c6bb)
 ### Сборная солянка
