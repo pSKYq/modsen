@@ -10,3 +10,5 @@
 ![image](https://github.com/pSKYq/modsen/assets/92396566/20729775-1c1d-453a-bfc4-13b97b314af1)
 ### Продвинутый уровень
 # УДАЛЕННЫЕ РЕПОЗИТОРИИ
+![image](https://github.com/pSKYq/modsen/assets/92396566/d567ef42-cda2-4962-99de-884221ab38ee)
+###  Push & Pull - удалённые репозитории в Git! 
