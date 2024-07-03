@@ -7,3 +7,6 @@
 ### Перемещаем туда сюда
 ![image](https://github.com/pSKYq/modsen/assets/92396566/2ed4dcdd-9b77-4b7c-8683-d88e2365c6bb)
 ### Сборная солянка
+![image](https://github.com/pSKYq/modsen/assets/92396566/20729775-1c1d-453a-bfc4-13b97b314af1)
+### Продвинутый уровень
+# УДАЛЕННЫЕ РЕПОЗИТОРИИ
