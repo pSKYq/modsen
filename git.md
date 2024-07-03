@@ -3,3 +3,5 @@
 ### Введение
 ![image](https://github.com/pSKYq/modsen/assets/92396566/7b355c35-6e07-460c-86e2-a2ed1e81fdfe)
 ### Едем дальше
+![image](https://github.com/pSKYq/modsen/assets/92396566/f919f389-81af-4a83-a558-cf2da294a9a9)
+### Перемещаем туда сюда
